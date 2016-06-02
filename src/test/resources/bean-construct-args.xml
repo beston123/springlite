@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="person" class="org.springlite.bean.Person" >
+        <constructor-arg name="age" value="30"/>
+        <constructor-arg name="mother" ref="mother"/>
+        <constructor-arg name="name" value="zixiao" />
+        <constructor-arg name="weight" value="3.44"/>
+        <constructor-arg name="url" value="http://www.sina.com"/>
+    </bean>
+
+    <bean id="mother" class="org.springlite.bean.People">
+        <constructor-arg name="gender" value="女"/>
+        <constructor-arg name="name" value="linda" />
+        <constructor-arg name="age" value="35"/>
+    </bean>
+
+    <!--bean id="father" class="org.springlite.bean.People">
+        <constructor-arg type="java.lang.String" value="男"/>
+        <constructor-arg type="int" value="35"/>
+        <constructor-arg type="java.lang.String" value="lll" />
+    </bean-->
+
+
+</beans>

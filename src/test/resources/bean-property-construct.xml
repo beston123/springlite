@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="student" class="org.springlite.bean.Student" >
+        <constructor-arg index="0" name="name" type="java.lang.String" value="lucy" />
+        <constructor-arg index="1" name="age" type="int" value="13" />
+        <constructor-arg index="2" ref="mother"/>
+        <property name="friends">
+            <list>
+                <value>张三</value>
+                <value>李四</value>
+            </list>
+        </property>
+        <property name="score">
+            <map>
+                <entry key="数学">
+                    <value>60</value>
+                </entry>
+                <entry key="英语">
+                    <value>70</value>
+                </entry>
+                <entry key="语文">
+                    <value>80</value>
+                </entry>
+                <entry key="物理">
+                    <value>90</value>
+                </entry>
+                <entry key="化学">
+                    <value>95</value>
+                </entry>
+            </map>
+        </property>
+        <property name="basicInfo">
+            <props>
+                <prop key="身高">160</prop>
+                <prop key="体重">45kg</prop>
+                <prop key="学历">初中</prop>
+            </props>
+        </property>
+        <property name="interest">
+            <set>
+                <value>唱歌</value>
+                <value>跳舞</value>
+                <value>书法</value>
+            </set>
+        </property>
+
+    </bean>
+
+    <bean id="mother" class="org.springlite.bean.People">
+        <constructor-arg name="gender" value="女"/>
+        <constructor-arg name="name" value="linda" />
+        <constructor-arg name="age" value="35"/>
+    </bean>
+
+
+</beans>

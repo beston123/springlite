@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="dbConnection" class="org.springlite.bean.DbConnection" >
+        <property name="dbName" value="zixiao"></property>
+        <property name="password" ref="passwordEncrypt"></property>
+    </bean>
+
+    <bean id="passwordEncrypt" class="org.springlite.bean.EncryptPasswordFactory" init-method="init">
+        <property name="password" value="64c5fd2979a86168"></property>
+    </bean>
+
+
+</beans>
