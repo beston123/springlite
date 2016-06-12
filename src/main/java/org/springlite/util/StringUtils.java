@@ -1166,7 +1166,7 @@ public abstract class StringUtils {
 	 * @param name
 	 * @return
 	 */
-	public static String toUpperCaseFirstOne(String name) {
+	public static String toLowerCaseFirstOne(String name) {
 		char[] ch = name.toCharArray();
 		for (int i = 0; i < ch.length; i++) {
 			if (i == 0) {

@@ -200,7 +200,7 @@ public abstract class AbstractBeanDefinitionReader implements BeanDefinitionRead
                 String className = definition.getBeanClassName();
                 String beanName = StringUtils.substringAfterLast(className, ".");
                 if(StringUtils.isNotBlank(beanName)){
-                    return org.springlite.util.StringUtils.toUpperCaseFirstOne(beanName);
+                    return org.springlite.util.StringUtils.toLowerCaseFirstOne(beanName);
                 }
             }
             throw new BeanDefinitionStoreException("Can not generate beanName, define in "+definition.getDescription()

@@ -521,6 +521,9 @@ public abstract class BeanUtils {
 	}
 
 	public static boolean isSimpleType(String type){
+		if("string".equals(type.toLowerCase()) || String.class.getName().equals(type)){
+			return true;
+		}
 		if("int".equals(type) || "byte".equals(type) || "short".equals(type)
 				|| "long".equals(type) || "float".equals(type) || "double".equals(type)){
 			return true;
