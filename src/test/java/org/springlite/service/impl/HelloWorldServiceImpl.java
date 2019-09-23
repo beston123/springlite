@@ -2,7 +2,6 @@ package org.springlite.service.impl;
 
 import org.springlite.service.HelloWorldService;
 import org.springlite.service.OutputService;
-import org.springlite.service.PrintService;
 
 /**
  * 〈一句话功能简述〉&lt;p&gt;
@@ -19,7 +18,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
     private OutputService outputService;
 
-    private HelloWorldServiceImpl(){}
+//    private HelloWorldServiceImpl(){}
 
     @Override
     public void init() {

@@ -125,6 +125,7 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
 				postProcessBeanFactory(beanFactory);
 
 				// Invoke factory processors registered as beans in the context.
+				// 执行 BeanFactoryPostProcessor
 				invokeBeanFactoryPostProcessors(beanFactory);
 
 				// Register bean processors that intercept bean creation.
@@ -134,15 +135,18 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
 				initMessageSource();
 
 				// Initialize event multicaster for this context.
+				// 初始化事件广播器 ApplicationEventMulticaster
 				initApplicationEventMulticaster();
 
 				// Initialize other special beans in specific context subclasses.
 				onRefresh();
 
 				// Check for listener beans and register them.
+				// 注册事件监听器 ApplicationListener
 				registerListeners();
 
 				// Instantiate all remaining (non-lazy-init) singletons.
+				// 初始化剩余的非延迟初始化单例
 				finishBeanFactoryInitialization(beanFactory);
 
 				// Last step: publish corresponding event.
@@ -271,6 +275,14 @@ public abstract class AbstractApplicationContext implements ConfigurableApplicat
 	 * Instantiate and invoke all registered BeanFactoryPostProcessor beans,
 	 * respecting explicit order if given.
 	 * <p>Must be called before singleton instantiation.
+	 *
+	 * 执行顺序
+	 * 1、getBeanFactoryPostProcessors().BeanDefinitionRegistryPostProcessor
+	 * 2、beanFactory.getBeansOfType(BeanDefinitionRegistryPostProcessor.class, true, false)
+	 * 3、getBeanFactoryPostProcessors().BeanFactoryPostProcessor
+	 * 4、beanFactory.getBeanNamesForType(BeanFactoryPostProcessor.class, true, false)
+	 * 	分类后在按顺序执行：PriorityOrdered -> Ordered -> the rest
+	 *
 	 */
 	protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) {
 //		// Invoke BeanDefinitionRegistryPostProcessors first, if any.

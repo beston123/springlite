@@ -4,10 +4,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 import org.springlite.context.ApplicationContext;
 import org.springlite.context.support.ClassPathXmlApplicationContext;
-import org.springlite.service.HelloWorldService;
-import org.springlite.service.OutputService;
-import org.springlite.service.PrintService;
-import org.springlite.service.PrinterDriver;
+import org.springlite.service.*;
 
 /**
  * 〈一句话功能简述〉&lt;p&gt;
@@ -23,7 +20,7 @@ public class BeanTest {
     //loan beanDefinition, createBean, resource cyclic loading, etc.
     @Test
     public void testBasic() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-test1.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-basic.xml");
         HelloWorldService helloWorldService = (HelloWorldService) applicationContext.getBean("helloWorldService");
         helloWorldService.say();
     }
@@ -68,6 +65,10 @@ public class BeanTest {
         applicationContext.close();
     }
 
-
+    //depends-On, circular reference
+    @Test
+    public void testDependsOnCircular() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-depends-circular.xml");
+    }
 
 }
